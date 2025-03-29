@@ -1,0 +1,40 @@
+<app-header></app-header>
+
+<div class="dashboard-container">
+  <input
+    type="text"
+    placeholder="Rechercher un contact..."
+    [(ngModel)]="searchTerm"
+    class="search-input"
+  />
+
+  <ul class="contact-list">
+    <li *ngFor="let contact of filteredContacts; let i = index" class="contact-item">
+      <div class="contact-info">
+        <div class="item">
+          <p class="contact-name"><strong>{{ contact.first_name }} {{ contact.last_name }}</strong></p>
+          <p class="contact-email">{{ contact.email }}</p>
+          <p class="contact-phone">{{ contact.phone }}</p>
+        </div>
+
+        <div class="item-flex">
+          <div class="">
+            <button class="action-button delete-button" (click)="deleteContact(contact.id)" title="Supprimer">
+              Supprimer
+            </button>
+          </div>
+          <div class="">
+            <button class="action-button edit-button" (click)="pageUpdateContact(contact.id)" title="Modifier">
+              Modifier
+            </button>
+          </div>
+          <div class="">
+            <button class="action-button details-button" (click)="viewContact(contact.id)" title="Voir les détails">
+              Détails
+            </button>
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>

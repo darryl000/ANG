@@ -1,0 +1,92 @@
+/* Contact Form Container */
+.contact-form-container {
+    max-width: 500px;
+    margin: 50px auto; /* Center the form horizontally */
+    padding: 20px;
+    background-color: #ffffff; /* White background for better readability */
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow for a polished look */
+    font-family: Arial, sans-serif;
+}
+
+/* Title Styling */
+.contact-form-container h2 {
+    text-align: center;
+    font-size: 1.5rem;
+    color: #2a3f54; /* Dark blue-gray for a professional touch */
+    margin-bottom: 20px;
+}
+
+/* Success and Error Messages */
+.success-message {
+    margin-bottom: 15px;
+    padding: 10px;
+    background-color: #d4edda;
+    color: #155724; /* Green for success */
+    border: 1px solid #c3e6cb;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.error-message {
+    margin-bottom: 15px;
+    padding: 10px;
+    background-color: #f8d7da;
+    color: #721c24; /* Red for errors */
+    border: 1px solid #f5c6cb;
+    border-radius: 5px;
+    text-align: center;
+}
+
+/* Form Labels */
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #2a3f54;
+}
+
+/* Input Fields */
+.contact-form-container input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.contact-form-container input:focus {
+    border-color: #007bff; /* Blue border on focus */
+}
+
+/* Button Styling */
+.contact-form-container button {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #007bff; /* Blue button for action */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.contact-form-container button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .contact-form-container {
+        padding: 15px;
+    }
+
+    .contact-form-container h2 {
+        font-size: 1.2rem;
+    }
+}

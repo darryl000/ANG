@@ -1,0 +1,10 @@
+/* Déclaration pour une police locale */
+/* @font-face {
+    font-family: 'CustomFont';
+    src: url('./assets/fonts/CustomFont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+} */
+
+/* Déclaration pour une police Google Fonts */
+/*  */

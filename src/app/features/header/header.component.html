@@ -1,0 +1,24 @@
+<header class="main-header">
+    <div class="brand">
+      <h1>MyApp</h1>
+    </div>
+    <nav class="navigation">
+      <ul class="nav-links">
+        <li>
+          <a class="link" href="#" (click)="navigateTo('dashboard', $event)">Dashboard</a>
+        </li>
+        <li class="dropdown">
+          <a class="link" href="#" (click)="$event.preventDefault()">Tâches ▼</a>
+          <ul class="dropdown-menu" [class.show]="isDropdownOpen">
+            <li *ngFor="let item of menuItems">
+              <a href="#" (click)="navigateTo(item.path, $event)">{{ item.label }}</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+    <div class="user-actions">
+      <button class="btn login" (click)="navigateTo('login', $event)">Connexion</button>
+      <button class="btn logout" (click)="logout()">Déconnexion</button>
+    </div>
+  </header>

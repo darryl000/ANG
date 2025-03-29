@@ -1,0 +1,52 @@
+<app-header></app-header>
+
+<div class="contact-form-container">
+    <h2>Modifier  un Contact</h2>
+   
+    <form  [formGroup]="contactForm" (ngSubmit)="updateContact()">
+  
+      <div *ngIf="successMessage" class="success-message">
+        {{ successMessage }}
+      </div>
+
+      <div *ngIf="errorMessage" class="error-message">
+        {{ errorMessage }}
+      </div>
+      <label for="firstName">Prénom</label>
+      <input
+        id="firstName"
+        type="text"
+        formControlName="first_name"
+        placeholder="Entrez le prénom"
+      />
+  
+      <label for="lastName">Nom</label>
+      <input
+        id="lastName"
+        type="text"
+        formControlName="last_name"
+        placeholder="Entrez le nom"
+      />
+  
+      <label for="email">Email</label>
+      <input
+        id="email"
+        type="email"
+        formControlName="email"
+        placeholder="Entrez l'email"
+      />
+  
+      <label for="phone">Téléphone</label>
+      <input
+        id="phone"
+        type="text"
+        formControlName="phone"
+        placeholder="Entrez le numéro de téléphone"
+      />
+  
+      <button>Sauvegarder</button>
+    </form>
+  
+  
+  </div>
+  

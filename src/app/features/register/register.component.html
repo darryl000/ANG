@@ -1,0 +1,62 @@
+<app-header></app-header>
+
+<div class="login-container">
+    <div class="container_form">
+      <h2>Inscription</h2>
+  
+      <div *ngIf="successMessage" class="success-message">
+        {{ successMessage }}
+      </div>
+  
+      <form (ngSubmit)="createUser()" class="form">
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input 
+            id="email" 
+            type="email" 
+            [(ngModel)]="newUser.email"
+            name="email" 
+            placeholder="Entrez votre email"
+            required 
+          />
+        </div>
+        
+        <div class="form-group">
+          <label for="password">Mot de passe</label>
+          <input 
+            id="password"
+            type="password"
+            [(ngModel)]="newUser.password" 
+            name="password" 
+            placeholder="Entrez votre mot de passe" 
+            required 
+          />
+        </div>
+  
+        <div class="form-group">
+          <label for="photo">Photo</label>
+          <input 
+            id="photo" 
+            type="text" 
+            [(ngModel)]="newUser.photo"
+            name="photo" 
+            placeholder="Entrez une photo"
+            required
+          />
+        </div>
+  
+        <p>Vous avez un compte ? 
+          <a (click)="navigateTo('login')" class="link">Se connecter</a>
+        </p>
+  
+        <button 
+          class="button"
+          type="submit" 
+          [disabled]="!newUser.email || !newUser.password || !newUser.photo"
+        >
+          Créer
+        </button>
+      </form>
+    </div>
+  </div>
+  

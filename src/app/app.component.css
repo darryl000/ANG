@@ -1,0 +1,41 @@
+.app-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+  }
+  
+  header {
+    background-color: #17171a; /* Violet pastel */
+    color: white;
+    padding: 1rem;
+    text-align: center;
+  }
+  
+  nav a {
+    margin: 0 10px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  nav a.active {
+    text-decoration: underline;
+  }
+  
+  main {
+    flex: 1;
+    padding: 2rem;
+    background-color: #f5f7fa; /* Gris très clair */
+  }
+  
+  footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: #0b0909;
+    color: white;
+  }
+  
+  body {
+    font-family: 'Poppins', sans-serif;
+  }

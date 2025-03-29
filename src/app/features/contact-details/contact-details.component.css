@@ -1,0 +1,43 @@
+/* Contact Details Styling */
+.contact-details {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #ffffff; /* White background for clarity */
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow for elegance */
+  font-family: Arial, sans-serif;
+}
+
+/* Heading Styling */
+.contact-details h2 {
+  font-size: 1.8rem;
+  color: #2a3f54; /* Dark blue-gray for professionalism */
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Paragraph Styling */
+.contact-details p {
+  font-size: 1rem;
+  color: #333333;
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+.contact-details p strong {
+  color: #007bff; /* Highlight key information in blue */
+}
+
+/* Not Found Message Styling */
+.ng-template p {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 15px;
+  background-color: #f8d7da; /* Light red background for error-like message */
+  color: #721c24; /* Dark red text for emphasis */
+  border: 1px solid #f5c6cb;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 1.1rem;
+}

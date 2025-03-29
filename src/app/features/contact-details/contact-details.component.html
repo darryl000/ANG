@@ -1,0 +1,12 @@
+<app-header></app-header>
+
+<div class="contact-details" *ngIf="contact; else notFound">
+    <h2>{{ contact.first_name }} {{ contact.last_name }}</h2>
+    <p><strong>Email :</strong> {{ contact.email }}</p>
+    <p><strong>Téléphone :</strong> {{ contact.phone }}</p>
+    <p><strong>Rôle :</strong> {{ contact.role }}</p> <!-- Ajout du rôle -->
+</div>
+
+<ng-template #notFound>
+    <p>Aucun contact trouvé pour cet ID.</p>
+</ng-template>

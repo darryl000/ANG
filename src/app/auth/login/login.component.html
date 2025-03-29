@@ -1,0 +1,44 @@
+<app-header></app-header>
+
+<main class="main-container">
+    <div class="login-container">
+        <div class="container_form">
+            <h2>Connexion</h2>
+            
+            <div *ngIf="errorMessage" class="message">
+                {{ errorMessage }}
+            </div>
+            
+            <form (ngSubmit)="onSubmit()">
+                <label for="email">Email</label>
+                <input 
+                    id="email" 
+                    type="email" 
+                    [(ngModel)]="email" 
+                    name="email" 
+                    placeholder="Entrez votre email" 
+                    required 
+                />
+                
+                <label for="password">Mot de passe</label>
+                <input 
+                    id="password" 
+                    type="password" 
+                    [(ngModel)]="password" 
+                    name="password" 
+                    placeholder="Entrez votre mot de passe" 
+                    required 
+                />
+                
+                <p>Vous n'avez pas de compte ? <a routerLink="/register" class="link">Créer un</a></p>
+                
+                <button 
+                    class="button" 
+                    type="submit" 
+                    [disabled]="!email || !password">
+                    Se connecter
+                </button>
+            </form>
+        </div>
+    </div>
+</main>
