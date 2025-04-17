@@ -14,11 +14,17 @@ export interface Contact {
   photo: string; }
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root', // Fournit ce service dans toute l'application
 })
 export class ContactService {
-  private apiUrl = 'https://www.api.4gul.kanemia.com';
+  private apiUrl = 'https://www.api.4gul.kanemia.com'; // URL de l'API backend
   constructor(private http: HttpClient, private router: Router) {}
+
+  /**
+   * Ajoute un contact à la base de données
+   * @param contact - Informations du contact à ajouter
+   * @returns Observable<Contact> - Réponse de l'API avec le contact ajouté
+   */
 
   addContact(contact: Contact): Observable<Contact> {
     const token = localStorage.getItem('authToken');
@@ -41,6 +47,11 @@ export class ContactService {
       })
     );
   }
+
+ /**
+   * Récupère tous les contacts de l'utilisateur
+   * @returns Observable<Contact[]> - Liste des contacts
+   */
 
 
   getContacts(): Observable<Contact[]> {
@@ -65,6 +76,13 @@ export class ContactService {
     );
   }
 
+/**
+   * Récupère un contact par son ID
+   * @param contactId - Identifiant du contact
+   * @returns Observable<any> - Détails du contact
+   */
+
+
   getContactById(contactId: number): Observable<any> {
     const token = localStorage.getItem('authToken');
   
@@ -84,6 +102,14 @@ export class ContactService {
   }
   
 
+/**
+   * Met à jour les informations d'un contact
+   * @param contactId - Identifiant du contact à mettre à jour
+   * @param updatedData - Données mises à jour
+   * @returns Observable<any> - Réponse de l'API
+   */
+
+
 
   updateContact(contactId: number, updatedData: any): Observable<any> {
     const token = localStorage.getItem('authToken');
@@ -98,6 +124,12 @@ export class ContactService {
     return this.http.put<any>(`${this.apiUrl}/contacts/${contactId}`, updatedData, { headers });
   }
 
+  /**
+   * Supprime un contact de la base de données
+   * @param contactId - Identifiant du contact à supprimer
+   * @returns Observable<void> - Réponse de l'API
+   */
+
 
   deleteContact(contactId: number): Observable<void> {
     const token = localStorage.getItem('authToken');
@@ -110,8 +142,10 @@ export class ContactService {
     return this.http.delete<void>(`${this.apiUrl}/contacts/${contactId}`, { headers });
   }
 
-
-  // Déconnexion en cas de token invalide
+/**
+   * Déconnecte l'utilisateur en supprimant son token
+   */
+  
   logout(): void {
     localStorage.removeItem('authToken'); // Supprime le token
     localStorage.clear(); // Supprime toutes les données stockées

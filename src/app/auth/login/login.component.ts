@@ -24,32 +24,37 @@ export class LoginComponent {
 
   constructor(private router: Router, private authService: AuthService) {}
   
-  
+  /**
+   * Navigation vers une autre page
+   * @param path - Chemin de la route vers laquelle naviguer
+   */
  
   navigateTo(path: string): void {
     this.router.navigate([path]); // Utiliser le service Router pour naviguer
   }
 
+/**
+   * Gère la soumission du formulaire de connexion
+   */
 
-  // Fonction pour créer un utilisateur
   onSubmit(): void {
-    if (this.email && this.password) {
+    if (this.email && this.password) { // Vérifie si les champs ne sont pas vides
       this.authService.login(this.email, this.password).subscribe(
         (response) => {
           console.log('Connexion réussie', response);
-          const token = response.user.token; 
-          const user = response.user;
+          const token = response.user.token;   // Récupère le token d'authentification
+          const user = response.user; // Récupère les informations de l'utilisateur
           if (token) {
-            localStorage.setItem('authToken',token); 
-            localStorage.setItem('userId', user.id); 
-            this.router.navigate(['/dashboard']);
+            localStorage.setItem('authToken',token); // Stocke le token dans le stockage local
+            localStorage.setItem('userId', user.id); // Stocke l'ID de l'utilisateur
+            this.router.navigate(['/dashboard']); // Redirige vers le tableau de bord après connexion
           } else {
             console.error('Token manquant dans la réponse');
           }
         },
         (error) => {
           console.error('Erreur de connexion', error);
-          this.errorMessage = 'Identifiants incorrects. Veuillez réessayer.';  // Affichage d'un message d'erreur
+          this.errorMessage = 'Identifiants incorrects. Veuillez réessayer.';  // Affiche un message d'erreur à l'utilisateur
         }
       );
     }

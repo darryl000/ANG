@@ -24,10 +24,11 @@ export class  ContactFormComponent implements OnInit {
 
 
    ngOnInit(): void {
+    // Récupération de la liste des contacts au chargement du composant
     this.contactService.getContacts().subscribe(
       (contacts) => {
         this.contacts = contacts;
-        this.totalContacts = contacts.length; // Calculer le nombre de contacts
+        this.totalContacts = contacts.length; // Mise à jour du nombre total de contacts
       },
       (error) => {
         console.error('Erreur lors de la récupération des contacts:', error);
@@ -35,7 +36,7 @@ export class  ContactFormComponent implements OnInit {
     );
   }
 
- 
+ // Méthode pour filtrer les contacts en fonction du champ de recherche
    get filteredContacts() {
     return this.contacts?.filter((contact) =>
       `${contact.first_name} ${contact.last_name}`.toLowerCase().includes(this.searchTerm.toLowerCase())
@@ -44,32 +45,33 @@ export class  ContactFormComponent implements OnInit {
 
 
 
-
+// Redirige vers la page de modification d'un contact
   editContact(index: number) {
     this.router.navigate(['/edit-contact', index]); // Redirection vers la modification
   }
 
 
-   // code qui renvoie vers la page de visualition des details d'un utilisateurs
+  // Redirige vers la page des détails d'un contact
    viewContact(contactId: number) {
     console.log('ID envoyé au détail:', contactId);
     this.router.navigate(['/contact-details', contactId]);
   }
 
 
-   // code qui renvoie vers la page de  modification   d'un utilisateurs
+    // Redirige vers la page de mise à jour d'un contact
   pageUpdateContact(contactId:number) {
     this.router.navigate(['/edit-contact',contactId])
   }
-
+ // Suppression d'un contact avec confirmation
   deleteContact(contactId: number) {
     const confirmation = confirm('Êtes-vous sûr de vouloir supprimer ce contact ?');
 
     if (confirmation) {
       this.contactService.deleteContact(contactId).subscribe(
         () => {
+          // Mise à jour de la liste après suppression
           this.contacts = this.contacts.filter(contact => contact.id !== contactId);
-          this.totalContacts = this.contacts.length; // Mettre à jour le nombre de contacts
+          this.totalContacts = this.contacts.length; // Mise à jour du nombre total de contacts
           alert('Le contact a été supprimé avec succès !');
         },
         (error) => {
